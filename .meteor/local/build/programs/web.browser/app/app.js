@@ -44,11 +44,11 @@ Template["userManagement"] = new Template("Template.userManagement", (function()
     }, "\n          ", HTML.INPUT({                                                                  // 36
       "class": "form-control input-sm",                                                              // 37
       id: "login-username",                                                                          // 38
-      placeholder: "Username"                                                                        // 39
+      placeholder: "Usaurio"                                                                         // 39
     }), "\n          ", HTML.INPUT({                                                                 // 40
       "class": "form-control input-sm",                                                              // 41
       id: "login-password",                                                                          // 42
-      placeholder: "Password",                                                                       // 43
+      placeholder: "Constraseña",                                                                    // 43
       type: "password"                                                                               // 44
     }), "\n        "), "\n\n        ", HTML.BUTTON({                                                 // 45
       type: "button",                                                                                // 46
