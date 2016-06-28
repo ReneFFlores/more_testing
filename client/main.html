@@ -1,25 +1,70 @@
 <head>
-  <title>testing</title>
+  <title>Señor Heisenberg</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
-  {{> info}}
+  <div class="row">
+    <div class="col-md-4 col-sm-4">{{> userManagement}}</div>
+    <div class="col-md-8 col-sm-8">{{> publicarBox}}</div>
+  </div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="userManagement">
+  <div class="user-container">
+    <div class="panel panel-default userBox">
+      <div class="panel-body">
+        {{# if currentUser}}
+        <p>Bienvenido <strong>@{{currentUser.username}}</strong></p>
+        <button type="button" class="btn btn-info fullbutton" id="logout">Salir</button>
+
+        {{else}}
+        <h4>Ingrese jefe</h4>
+        <div class="form-group">
+          <input class="form-control input-sm" id="login-username" placeholder="Usaurio">
+          <input class="form-control input-sm" id="login-password" placeholder="Constraseña" type="password">
+        </div>
+
+        <button type="button" class="btn btn-info fullbutton login" id="login">Entrar</button>
+
+
+        <!-- Sign up module -->
+        <h4>Agregando señor....primer testing solamente- eliminar depsues</h4>
+        <div class="form-group">
+          <input class="form-control input-sm" id="signup-username" placeholder="Usuario">
+          <input class="form-control input-sm" id="signup-password" placeholder="Constraseña" type="password">
+        </div>
+
+        <button type="button" class="btn btn-info fullbutton" id="signup">Inscribirse</button>
+        {{/if}}
+
+      </div>
+    </div>
+  </div>
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
+
+
+<template name="publicarBox">
+  <div class="publicarbox-container">
+    <div class="panel panel-default publicarbox">
+      <div class="panel-body">
+        <!-- Text box for publicar content -->
+        <textarea class="form-control" id="publicarText" placeholder="Nombre del producto" rows="3"></textarea>
+        <textarea class="form-control" id="publicarText" placeholder="Descripcion del pdoructo" rows="3"></textarea>
+        <textarea class="form-control" id="publicarText" placeholder="Formula quimica del producto" rows="3"></textarea>
+
+        <!-- Character count & button -->
+        <div class="pull-right btnGroup">
+          <strong class="{{charClass}}">{{charCount}}</strong>
+
+          {{#if currentUser}}
+          <button class="btn btn-info pull-right" type="button" {{disableButton}}>Publicar</button>
+          {{else}}
+          <button class="btn btn-info pull-right" type="button" disabled>Señor, usted debe de iniciar sesion</button>
+          {{/if}}
+        </div>
+
+      </div>
+    </div>
+  </div>
 </template>
